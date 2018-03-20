@@ -1,0 +1,50 @@
+<div class="mx-auto px-auto text-center justify-content-center align-items-center" >
+
+  <h2>تسجيل مستخدم جديد</h2>
+  <br>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+  <div class="col-md-4 text-center  d-block mx-auto" dir="rtl">
+    <div class="field">
+      <label><%= f.label "اسم المستخدم", :class => "register-form" %></label>
+      <br>
+      <%= f.text_field :username, autofocus: false, :class => "form-control " %>
+    </div>
+  </div>
+  <br>
+  <div class="col-md-4 text-center  d-block mx-auto">
+    <div class="field">
+      <label><%= f.label "البريد الالكتروني", :class => "register-form" %></label>
+      <br>
+      <%= f.text_field :email, autofocus: false, :class => "form-control " %>
+    </div>
+  </div>
+  <br>
+  <div class="col-md-4 text-center  d-block mx-auto">
+    <div class="field" dir="rtl">
+      <%= f.label "كلمة المرور", :class => "register-form" %>
+      <br>
+      <% if @minimum_password_length %>
+        <small>( يجب أن تتكون كلمة المرور من
+          <%= @minimum_password_length %>
+          رموز على الأقل )</small>
+      <% end %><br/>
+      <%= f.password_field :password, autocomplete: "off" , :class => "form-control "%>
+    </div>
+  </div>
+  <br>
+  <div class="col-md-4 text-center  d-block mx-auto">
+    <div class="field">
+      <%= f.label "تأكيد كلمة المرور" , :class => "register-form"%><br/>
+      <br>
+      <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control " %>
+    </div>
+  </div>
+  <br>
+  <div class="col-md-12 text-center  d-block mx-auto">
+    <div class="actions">
+      <%= f.submit "تسجيل", :class => "btn btn-success btn-lg" %>
+    </div>
+  </div>
+<% end %>
+</div>

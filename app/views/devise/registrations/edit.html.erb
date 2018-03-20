@@ -1,0 +1,59 @@
+<div class="mx-auto px-auto text-center justify-content-center align-items-center">
+  <h2>اعدادت حسابي
+  </h2>
+  <br>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%#= devise_error_messages! %>
+
+  <div class="col-md-4 text-center  d-block mx-auto">
+    <div class="field" dir="rtl">
+      <label><%= f.label "اسم المستخدم", :class => "register-form" %></label>
+      <br>
+      <%= f.text_field :username, autofocus: false, :class => "form-control " %>
+    </div>
+  </div>
+  <br>
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for:
+      <%= resource.unconfirmed_email %></div>
+  <% end %>
+  <div class="col-md-4 text-center  d-block mx-auto">
+    <div class="field" dir="rtl">
+      <%= f.label "كلمة مرور جديدة", :class => "register-form" %>
+        <br>
+      <% if @minimum_password_length %>
+        <small>( يجب أن تتكون كلمة المرور من
+          <%= @minimum_password_length %>
+          رموز على الأقل )</small>
+      <% end %><br>
+      <small>(اترك الحقل فارغا في حال عدم رغبة بتعيين كلمة مرور جديدة)</small><br/>
+      <%= f.password_field :password, autocomplete: "off", :class => "form-control " %>
+    </div>
+  </div>
+    <br>
+    <div class="col-md-4 text-center  d-block mx-auto">
+      <div class="field" dir="rtl">
+        <%= f.label "تأكيد كلمة المرور", :class => "register-form" %><br/>
+        <small>(اترك الحقل فارغا في حال عدم رغبة بتعيين كلمة مرور جديدة)</small>
+        <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control " %>
+      </div>
+    </div>
+    <br>
+    <div class="col-md-4 text-center  d-block mx-auto">
+      <div class="field" dir="rtl">
+        <%= f.label "كلمة المرور الحالية", :class => "register-form" %>
+          <br>
+        <small>(لتأكيد التعديلات ادخل كلمة المرور الحالية)</small><br/>
+        <%= f.password_field :current_password, autocomplete: "off", :class => "form-control " %>
+      </div>
+    </div>
+    <br>
+    <div class="col-md-12 text-center  d-block mx-auto">
+      <div class="actions">
+        <%= f.submit "تعديل", :class => "btn btn-success btn-lg" %>
+      </div>
+    </div>
+  <% end %>
+<br>
+  <%= link_to "الرجوع للسابق", :back, :class => "btn btn-warning btn-lg" %>
+</div>

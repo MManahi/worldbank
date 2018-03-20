@@ -1,0 +1,29 @@
+<div class="mx-auto px-auto text-center justify-content-center align-items-center">
+  <h2>تسجيل الدخول</h2><br>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="col-md-4 text-center  d-block mx-auto" dir="rtl">
+    <div class="field">
+      <%= f.label "البريد الالكتورني", :class => "register-form" %><br/>
+      <%= f.email_field :email, autofocus: false, autocomplete: "email", :class => "form-control " %>
+    </div>
+  </div>
+  <br>
+  <div class="col-md-4 text-center  d-block mx-auto" dir="rtl">
+    <div class="field">
+      <%= f.label "كلمة المرور" , :class => "register-form"%><br/>
+      <%= f.password_field :password, autocomplete: "off" , :class => "form-control " %>
+    </div>
+  </div>
+  <br>
+  <% if devise_mapping.rememberable? -%>
+    <div class="field">
+      <%= f.label "تذكر بياناتي" %>
+      <%= f.check_box :remember_me %>
+    </div>
+  <% end -%>
+  <div class="col-md-12 text-center  d-block mx-auto">
+    <div class="actions">
+      <%= f.submit "تسجيل الدخول", :class => "btn btn-success btn-lg" %>
+    </div>
+  </div>
+<% end %>

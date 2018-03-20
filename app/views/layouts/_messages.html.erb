@@ -1,0 +1,25 @@
+<% unless notice.nil? %>
+  <div class="mx-auto col-md-4 alert alert-info alert-with-icon" data-notify="container">
+    <div class="container">
+      <div class="alert-wrapper text-center">
+        <i class="fa fa-bell"></i>
+        <div class="separator"></div>
+        <div class="message text-center" dir="rtl">
+          <%= notice %></div>
+      </div>
+    </div>
+  </div>
+<% end %>
+<% unless alert.nil? %>
+  <div class="mx-auto col-md-4 alert alert-danger alert-with-icon" data-notify="container">
+    <div class="container">
+      <div class="alert-wrapper text-center">
+        <i class="fa fa-bell"></i>
+        <div class="separator">
+          <div class="message text-center" dir="rtl">
+            <%= alert %></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>

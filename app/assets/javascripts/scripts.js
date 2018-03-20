@@ -1,3 +1,3 @@
 $(document).on('turbolinks:load ajaxSuccess', function() {
-// scripts here
+$('.alert').fadeOut(8000);
 });
