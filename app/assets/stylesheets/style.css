@@ -140,7 +140,7 @@
   margin-bottom: 3px;
 }
 .footer nav > ul a:not(.btn):hover, .footer nav > ul a:not(.btn):focus {
-  color: #E3E3E3;
+  color: #335566;
 }
 .footer .copyright {
   color: #777777;
@@ -153,7 +153,6 @@
 .footer .heart{
     color: #EB5E28;
 }
-
 .social-share{
     float: left;
     margin-right: 8px;

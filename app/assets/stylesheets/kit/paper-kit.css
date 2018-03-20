@@ -17,7 +17,7 @@
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td-name, td, button, input, select, textarea {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  font-family: "Montserrat", "Helvetica", Arial, sans-serif;
+  font-family: 'Cairo', sans-serif;
   font-weight: 300;
 }
 
@@ -78,7 +78,7 @@ h1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small {
 .footer-big h5,
 .footer-big h4,
 .media .media-heading {
-  font-family: "Montserrat", "Helvetica", Arial, sans-serif;
+  font-family: 'Cairo', sans-serif;
 }
 .title,
 .title a,
@@ -196,7 +196,7 @@ body {
   color: #66615b;
   font-size: 14px;
   font-weight: 300;
-  font-family: 'Montserrat', "Helvetica", Arial, sans-serif;
+  font-family: 'Cairo', sans-serif;
 }
 
 a {
@@ -1943,7 +1943,7 @@ textarea.form-control {
   font-weight: 600;
   margin: 5px 0px;
   padding: 20px 15px;
-  font-size: 14px;
+  font-size: 18px;
   color: #66615B;
   text-transform: uppercase;
 }
@@ -1973,7 +1973,7 @@ textarea.form-control {
   margin: 15px 0px;
   padding: 10px 15px;
   opacity: .8;
-  font-size: 12px;
+  font-size: 14px;
   text-transform: uppercase;
   font-weight: 600;
   color: #66615B;
@@ -4814,7 +4814,7 @@ textarea.form-control {
     color: #9A9A9A !important;
     text-transform: uppercase;
     font-weight: 600;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1.5em;
     padding: 15px 0;
   }

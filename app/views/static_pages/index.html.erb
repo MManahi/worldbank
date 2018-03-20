@@ -1,20 +1,46 @@
-<h1>StaticPages#index</h1>
-<p class="m">Find me in app/views/static_pages/index.html.erb</p>
-<i class="fa fa-500px fa-5x"></i>
-<div class="section section-dark text-center">
+<nav class="navbar navbar-expand-lg fixed-top navbar-transparent" color-on-scroll="300">
   <div class="container">
-    <h2 class="title">About</h2>
-    <div class="row">
-      <div class="col-md-4 ml-auto">
-        <div class="card-body card-plain">
-          <span class="about-icon ml-auto">
-            <i class="fa fa-gamepad fa-4x " aria-hidden="true"></i>
-          </span>
-          <div class="author">
-            <h4 class="card-title">All Platforms</h4>
-          </div>
-          <p class="card-description text-center">
-            Games Hub supports PC, Playstation, XBOX, Wii, Android, iOS and More.</p>
-        </div>
-      </div>
-<i class="fa fa-camera-retro"></i> Take a photo
+    <div class="navbar-translate">
+      <a class="navbar-brand" href="#">دليل العالم</a>
+      <button class="navbar-toggler navbar-toggler-right navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-bar"></span>
+        <span class="navbar-toggler-bar"></span>
+        <span class="navbar-toggler-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarToggler">
+      <ul class="navbar-nav ml-auto" dir="rtl">
+        <li class="nav-item">
+
+          <a class="nav-link" href="#">
+            <span class="fa fa-home"></span>
+            الرئيسية
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <span class="fa fa-user"></span>
+            تسجيل الدخول
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <span class="fa fa-info"></span>
+            حول الدليل
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="page-header" data-parallax="false" style="background-image: url(<%= asset_path "landing.jpeg" %>);">
+  <div class="filter"></div>
+  <div class="container">
+    <div class="motto text-center">
+      <h1>
+        دليل العالم</h1>
+      <h3>الدليل الجغرافي، السياسي، الاقتصادي، الثقافي، الشامل لدول العالم</h3>
+      <br/>
+    </div>
+  </div>
+</div>
