@@ -21,4 +21,10 @@
 //= require kit/moment.min
 //= require bootstrap/bootstrap-datetimepicker.min
 //= require kit/paper-kit
+//= require summernote/summernote-bs4.min
+//= require summernote-init
+//= require world-map/ammap
+//= require world-map/worldLow
+//= require world-map/ar
+//= require world-map/light
 //= require scripts

@@ -1,0 +1,271 @@
+<%= form_with(model: state, local: true) do |form| %>
+<% if state.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(state.errors.count, "error") %>
+      prohibited this state from being saved:</h2>
+
+    <ul>
+      <% state.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<h3>
+  أولا: المعلومات العامة عن الدولة</h3>
+<br>
+<div class="separator-line"></div>
+<br>
+<div class="col-md-4 text-center  d-block mx-auto" dir="rtl">
+  <div class="field">
+    <%= form.label "اسم الدولة باللغة العربية", :class => "register-form" %>
+    <br>
+    <%= form.text_field :state_name, id: :state_state_name, :class => "form-control " %>
+  </div>
+</div>
+<br>
+<div class="col-md-4 text-center  d-block mx-auto">
+  <div class="field">
+    <%= form.label "اسم الدولة الرسمي باللغة العربية", :class => "register-form" %>
+    <br>
+    <%= form.text_field :state_official_name, id: :state_state_official_name, :class => "form-control " %>
+  </div>
+</div>
+<br>
+<div class="col-md-4 text-center  d-block mx-auto">
+  <div class="field">
+    <%= form.label "اسم الدولة باللغة الانجليزية", :class => "register-form" %>
+    <br>
+    <%= form.text_field :state_name_en, id: :state_state_name_en, :class => "form-control " %>
+  </div>
+</div>
+<br>
+<div class="col-md-4 text-center  d-block mx-auto">
+  <div class="field">
+    <%= form.label "اسم الدولة الرسمي باللغة الانجليزية", :class => "register-form" %>
+    <br>
+    <%= form.text_field :state_official_name_en, id: :state_state_official_name_en, :class => "form-control " %>
+  </div>
+</div>
+<br>
+<div class="col-md-4 text-center  d-block mx-auto">
+  <div class="field">
+    <%= form.label "القارة التي تقع فيها الدولة", :class => "register-form" %>
+    <br>
+    <%= form.text_field :state_continent, id: :state_state_continent, :class => "form-control " %>
+  </div>
+</div>
+<br>
+<div class="col-md-4 text-center  d-block mx-auto">
+  <div class="field">
+    <%= form.label "مساحة الدولة (كيلومتر مربع)", :class => "register-form" %>
+    <br>
+    <%= form.text_field :state_size, id: :state_state_size, :class => "form-control " %>
+  </div>
+</div>
+<br>
+<div class="col-md-4 text-center  d-block mx-auto">
+  <div class="field">
+    <%= form.label "التعداد السكاني (نسمة)", :class => "register-form" %>
+    <br>
+    <%= form.text_field :state_population, id: :state_state_population, :class => "form-control " %>
+  </div>
+</div>
+<br>
+<div class="col-md-10 text-center  d-block mx-auto" dir="ltr">
+  <div class="field">
+    <%= form.label "اهم المدن وتعدادها السكاني", :class => "register-form" %>
+    <br>
+    <%= form.text_area :state_major_cities, id: :state_state_major_cities, :class => "form-control ", 'data-provider': :summernote %>
+  </div>
+</div>
+<br>
+<div class="col-md-4 text-center  d-block mx-auto">
+  <div class="field">
+    <%= form.label "لغة الدولة الرسمية", :class => "register-form" %>
+    <br>
+    <%= form.text_field :state_official_lang, id: :state_state_official_lang, :class => "form-control " %>
+  </div>
+</div>
+<br>
+<div class="col-md-4 text-center  d-block mx-auto">
+  <div class="field">
+    <%= form.label "العملة الرسمية المتداولة", :class => "register-form" %>
+    <br>
+    <%= form.text_field :state_currency, id: :state_state_currency, :class => "form-control " %>
+  </div>
+</div>
+<br>
+<div class="col-md-4 text-center  d-block mx-auto">
+  <div class="field">
+    <%= form.label "الديانة الرسمية", :class => "register-form" %>
+    <br>
+    <%= form.text_field :state_religion, id: :state_state_religion, :class => "form-control " %>
+  </div>
+</div>
+<br>
+<div class="col-md-10 text-center  d-block mx-auto" dir="ltr">
+  <div class="field">
+    <%= form.label "الدول المجاورة للدولة", :class => "register-form" %>
+    <br>
+    <%= form.text_area :state_neighbors, id: :state_state_neighbors, :class => "form-control ", 'data-provider': :summernote %>
+  </div>
+</div>
+<br>
+<div class="col-md-10 text-center  d-block mx-auto" dir="ltr">
+  <div class="field">
+    <%= form.label "طبيعة الدولة", :class => "register-form" %>
+    <br>
+    <%= form.text_area :state_nature, id: :state_state_nature, :class => "form-control ", 'data-provider': :summernote %>
+  </div>
+</div>
+<br>
+<div class="col-md-10 text-center  d-block mx-auto" dir="ltr">
+  <div class="field">
+    <%= form.label "اهم المناطق والمحافظات ", :class => "register-form" %>
+    <br>
+    <%= form.text_area :state_provinces, id: :state_state_provinces, :class => "form-control ", 'data-provider': :summernote %>
+  </div>
+</div>
+<br>
+<div class="col-md-4 text-center  d-block mx-auto">
+  <div class="field">
+    <%= form.label "علم الدولة", :class => "register-form" %>
+    <br>
+    <%= form.text_field :state_flag, id: :state_state_flag, :class => "form-control " %>
+  </div>
+</div>
+<br>
+<div class="col-md-4 text-center  d-block mx-auto">
+  <div class="field">
+    <%= form.label "خريطة الدولة", :class => "register-form" %>
+    <br>
+    <%= form.text_field :state_map, id: :state_state_map, :class => "form-control " %>
+  </div>
+</div>
+<br>
+<h3>
+  ثانيا: الوضع السياسي للدولة</h3>
+<br>
+<div class="separator-line"></div>
+<br>
+<div class="col-md-10 text-center  d-block mx-auto" dir="ltr">
+  <div class="field">
+    <%= form.label "نشأة الدولة", :class => "register-form" %>
+    <br>
+    <%= form.text_area :state_origin, id: :state_state_origin, :class => "form-control ", 'data-provider': :summernote %>
+  </div>
+</div>
+<br>
+<div class="col-md-10 text-center  d-block mx-auto" dir="ltr">
+  <div class="field">
+    <%= form.label "الخلفية السياسية للدولة", :class => "register-form" %>
+    <br>
+    <%= form.text_area :state_political_background, id: :state_state_political_background, :class => "form-control ", 'data-provider': :summernote %>
+  </div>
+</div>
+<br>
+<div class="col-md-10 text-center  d-block mx-auto" dir="ltr">
+  <div class="field">
+    <%= form.label "نظام الحكم في الدولة", :class => "register-form" %>
+    <br>
+    <%= form.text_area :state_regime_type, id: :state_state_regime_type, :class => "form-control ", 'data-provider': :summernote %>
+  </div>
+</div>
+<br>
+<div class="col-md-10 text-center  d-block mx-auto" dir="ltr">
+  <div class="field">
+    <%= form.label "النظام الحكومي والبرلمان", :class => "register-form" %>
+    <br>
+    <%= form.text_area :state_goverment, id: :state_state_goverment, :class => "form-control ", 'data-provider': :summernote %>
+  </div>
+</div>
+<br>
+<div class="col-md-10 text-center  d-block mx-auto" dir="ltr">
+  <div class="field">
+    <%= form.label "دستور الدولة", :class => "register-form" %>
+    <br>
+    <%= form.text_area :state_constitution, id: :state_state_constitution, :class => "form-control ", 'data-provider': :summernote %>
+  </div>
+</div>
+<br>
+<h3>
+  ثالثا: العلاقات الخارجية</h3>
+<br>
+<div class="separator-line"></div>
+<br>
+<div class="col-md-10 text-center  d-block mx-auto" dir="ltr">
+  <div class="field">
+    <%= form.label "العلاقات الخارجية", :class => "register-form" %>
+    <br>
+    <%= form.text_area :state_foreign_affairs, id: :state_state_foreign_affairs, :class => "form-control ", 'data-provider': :summernote %>
+  </div>
+</div>
+<br>
+<h3>
+  رابعا: القضايا الراهنة</h3>
+<br>
+<div class="separator-line"></div>
+<br>
+<div class="col-md-10 text-center  d-block mx-auto" dir="ltr">
+  <div class="field">
+    <%= form.label "القضايا الراهنة", :class => "register-form" %>
+    <br>
+    <%= form.text_area :state_current_issues, id: :state_state_current_issues, :class => "form-control ", 'data-provider': :summernote %>
+  </div>
+</div>
+<br>
+<h3>
+  خامسا: المشاركة السياسية</h3>
+<br>
+<div class="separator-line"></div>
+<br>
+<div class="col-md-10 text-center  d-block mx-auto" dir="ltr">
+  <div class="field">
+    <%= form.label "الأحزاب والجماعات السياسية" , :class => "register-form" %>
+    <br>
+    <%= form.text_area :state_political_parties, id: :state_state_political_parties, :class => "form-control ", 'data-provider': :summernote %>
+  </div>
+</div>
+<br>
+<h3>سادسا: مؤسسة الرئاسة والحكومة</h3>
+<br>
+<div class="separator-line"></div>
+<br>
+<div class="col-md-10 text-center  d-block mx-auto" dir="ltr">
+  <div class="field">
+    <%= form.label "التشكيل الرئاسي والحكومي", :class => "register-form" %>
+    <br>
+    <%= form.text_area :state_regime_members, id: :state_state_regime_members, :class => "form-control ", 'data-provider': :summernote %>
+  </div>
+</div>
+<br>
+<h3>
+  سابعا: التمثيل الدولي والعلاقة مع القضية الفلسطينية</h3>
+<br>
+<div class="separator-line"></div>
+<br>
+<div class="col-md-10 text-center  d-block mx-auto" dir="ltr">
+  <div class="field">
+    <%= form.label "التمثيل الدولي والسفراء", :class => "register-form" %>
+    <br>
+    <%= form.text_area :state_international_representation, id: :state_state_international_representation, :class => "form-control ", 'data-provider': :summernote %>
+  </div>
+</div>
+<br>
+<div class="col-md-10 text-center  d-block mx-auto" dir="ltr" dir="ltr">
+  <div class="field">
+    <%= form.label "علاقة الدولة بالقضية الفلسطينية", :class => "register-form" %>
+    <br>
+    <%= form.text_area :state_relations_with_palestine, id: :state_state_relations_with_palestine, :class => "form-control ", 'data-provider': :summernote %>
+  </div>
+</div>
+<br>
+
+<!-- <div class="field"> <%#= form.label :user_id %> <%#= form.text_field :user_id, id: :state_user_id %> </div> -->
+<div class="col-md-10 text-center  d-block mx-auto">
+  <div class="actions">
+    <%= form.submit "حفظ", :class => "btn btn-success btn-lg" %>
+  </div>
+</div>
+<% end %>

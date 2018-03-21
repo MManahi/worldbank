@@ -34,6 +34,7 @@ gem "font-awesome-rails"
 # Use Capistrano for deployment
 gem 'devise'
 # gem 'capistrano-rails', group: :development
+gem 'summernote-rails', '~> 0.8.10.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

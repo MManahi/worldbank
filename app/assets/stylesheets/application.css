@@ -15,6 +15,10 @@
  *= require fontawesome/font-awesome.min
  *= require font-awesome
  *= require kit/paper-kit
+ *= require summernote-bs4
+ *= require summernote-custom-theme.min
+ *= require summernote-lite-flatly
+ *= require world-map/ammap
  *= require style
  *= require_self
 */
