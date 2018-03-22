@@ -12,13 +12,27 @@
  *
  *= require bootstrap/bootstrap.min
  *= require kit/nucleo-icons
+ *= require froala_editor.min
+ *= require froala_style.min
  *= require fontawesome/font-awesome.min
  *= require font-awesome
  *= require kit/paper-kit
- *= require summernote-bs4
- *= require summernote-custom-theme.min
- *= require summernote-lite-flatly
  *= require world-map/ammap
+ *= require froala/char_counter.min
+ *= require froala/code_view.min
+ *= require froala/colors.min
+ *= require froala/draggable.min
+ *= require froala/emoticons.min
+ *= require froala/file.min
+ *= require froala/fullscreen.min
+ *= require froala/help.min
+ *= require froala/image.min
+ *= require froala/image_manager.min
+ *= require froala/line_breaker.min
+ *= require froala/quick_insert.min
+ *= require froala/special_characters.min
+ *= require froala/table.min
+ *= require froala/video.min
  *= require style
  *= require_self
 */

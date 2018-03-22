@@ -32,7 +32,7 @@
   </div>
 </div>
 <br>
-<div class="col-md-4 text-center  d-block mx-auto">
+<div class="col-md-4 text-center  d-block mx-auto" dir="ltr">
   <div class="field">
     <%= form.label "اسم الدولة باللغة الانجليزية", :class => "register-form" %>
     <br>
@@ -40,7 +40,7 @@
   </div>
 </div>
 <br>
-<div class="col-md-4 text-center  d-block mx-auto">
+<div class="col-md-4 text-center  d-block mx-auto" dir="ltr">
   <div class="field">
     <%= form.label "اسم الدولة الرسمي باللغة الانجليزية", :class => "register-form" %>
     <br>
@@ -76,7 +76,7 @@
   <div class="field">
     <%= form.label "اهم المدن وتعدادها السكاني", :class => "register-form" %>
     <br>
-    <%= form.text_area :state_major_cities, id: :state_state_major_cities, :class => "form-control ", 'data-provider': :summernote %>
+    <%= form.text_area :state_major_cities, :class => "form-control edit", id: :state_major_cities %>
   </div>
 </div>
 <br>
@@ -108,7 +108,7 @@
   <div class="field">
     <%= form.label "الدول المجاورة للدولة", :class => "register-form" %>
     <br>
-    <%= form.text_area :state_neighbors, id: :state_state_neighbors, :class => "form-control ", 'data-provider': :summernote %>
+    <%= form.text_area :state_neighbors, id: :state_state_neighbors, :class => "form-control edit"%>
   </div>
 </div>
 <br>
@@ -116,7 +116,7 @@
   <div class="field">
     <%= form.label "طبيعة الدولة", :class => "register-form" %>
     <br>
-    <%= form.text_area :state_nature, id: :state_state_nature, :class => "form-control ", 'data-provider': :summernote %>
+    <%= form.text_area :state_nature, id: :state_state_nature, :class => "form-control edit" %>
   </div>
 </div>
 <br>
@@ -124,11 +124,11 @@
   <div class="field">
     <%= form.label "اهم المناطق والمحافظات ", :class => "register-form" %>
     <br>
-    <%= form.text_area :state_provinces, id: :state_state_provinces, :class => "form-control ", 'data-provider': :summernote %>
+    <%= form.text_area :state_provinces, id: :state_state_provinces, :class => "form-control edit" %>
   </div>
 </div>
 <br>
-<div class="col-md-4 text-center  d-block mx-auto">
+<div class="col-md-4 text-center  d-block mx-auto" dir="ltr">
   <div class="field">
     <%= form.label "علم الدولة", :class => "register-form" %>
     <br>
@@ -136,7 +136,7 @@
   </div>
 </div>
 <br>
-<div class="col-md-4 text-center  d-block mx-auto">
+<div class="col-md-4 text-center  d-block mx-auto" dir="ltr">
   <div class="field">
     <%= form.label "خريطة الدولة", :class => "register-form" %>
     <br>
@@ -153,7 +153,7 @@
   <div class="field">
     <%= form.label "نشأة الدولة", :class => "register-form" %>
     <br>
-    <%= form.text_area :state_origin, id: :state_state_origin, :class => "form-control ", 'data-provider': :summernote %>
+    <%= form.text_area :state_origin, id: :state_state_origin, :class => "form-control edit" %>
   </div>
 </div>
 <br>
@@ -161,7 +161,7 @@
   <div class="field">
     <%= form.label "الخلفية السياسية للدولة", :class => "register-form" %>
     <br>
-    <%= form.text_area :state_political_background, id: :state_state_political_background, :class => "form-control ", 'data-provider': :summernote %>
+    <%= form.text_area :state_political_background, id: :state_state_political_background, :class => "form-control edit" %>
   </div>
 </div>
 <br>
@@ -169,7 +169,7 @@
   <div class="field">
     <%= form.label "نظام الحكم في الدولة", :class => "register-form" %>
     <br>
-    <%= form.text_area :state_regime_type, id: :state_state_regime_type, :class => "form-control ", 'data-provider': :summernote %>
+    <%= form.text_area :state_regime_type, id: :state_state_regime_type, :class => "form-control edit" %>
   </div>
 </div>
 <br>
@@ -177,7 +177,7 @@
   <div class="field">
     <%= form.label "النظام الحكومي والبرلمان", :class => "register-form" %>
     <br>
-    <%= form.text_area :state_goverment, id: :state_state_goverment, :class => "form-control ", 'data-provider': :summernote %>
+    <%= form.text_area :state_goverment, id: :state_state_goverment, :class => "form-control edit" %>
   </div>
 </div>
 <br>
@@ -185,7 +185,7 @@
   <div class="field">
     <%= form.label "دستور الدولة", :class => "register-form" %>
     <br>
-    <%= form.text_area :state_constitution, id: :state_state_constitution, :class => "form-control ", 'data-provider': :summernote %>
+    <%= form.text_area :state_constitution, id: :state_state_constitution, :class => "form-control edit" %>
   </div>
 </div>
 <br>
@@ -198,7 +198,7 @@
   <div class="field">
     <%= form.label "العلاقات الخارجية", :class => "register-form" %>
     <br>
-    <%= form.text_area :state_foreign_affairs, id: :state_state_foreign_affairs, :class => "form-control ", 'data-provider': :summernote %>
+    <%= form.text_area :state_foreign_affairs, id: :state_state_foreign_affairs, :class => "form-control edit" %>
   </div>
 </div>
 <br>
@@ -211,7 +211,7 @@
   <div class="field">
     <%= form.label "القضايا الراهنة", :class => "register-form" %>
     <br>
-    <%= form.text_area :state_current_issues, id: :state_state_current_issues, :class => "form-control ", 'data-provider': :summernote %>
+    <%= form.text_area :state_current_issues, id: :state_state_current_issues, :class => "form-control edit" %>
   </div>
 </div>
 <br>
@@ -224,7 +224,7 @@
   <div class="field">
     <%= form.label "الأحزاب والجماعات السياسية" , :class => "register-form" %>
     <br>
-    <%= form.text_area :state_political_parties, id: :state_state_political_parties, :class => "form-control ", 'data-provider': :summernote %>
+    <%= form.text_area :state_political_parties, id: :state_state_political_parties, :class => "form-control edit" %>
   </div>
 </div>
 <br>
@@ -236,7 +236,7 @@
   <div class="field">
     <%= form.label "التشكيل الرئاسي والحكومي", :class => "register-form" %>
     <br>
-    <%= form.text_area :state_regime_members, id: :state_state_regime_members, :class => "form-control ", 'data-provider': :summernote %>
+    <%= form.text_area :state_regime_members, id: :state_state_regime_members, :class => "form-control edit" %>
   </div>
 </div>
 <br>
@@ -249,7 +249,7 @@
   <div class="field">
     <%= form.label "التمثيل الدولي والسفراء", :class => "register-form" %>
     <br>
-    <%= form.text_area :state_international_representation, id: :state_state_international_representation, :class => "form-control ", 'data-provider': :summernote %>
+    <%= form.text_area :state_international_representation, id: :state_state_international_representation, :class => "form-control edit" %>
   </div>
 </div>
 <br>
@@ -257,7 +257,7 @@
   <div class="field">
     <%= form.label "علاقة الدولة بالقضية الفلسطينية", :class => "register-form" %>
     <br>
-    <%= form.text_area :state_relations_with_palestine, id: :state_state_relations_with_palestine, :class => "form-control ", 'data-provider': :summernote %>
+    <%= form.text_area :state_relations_with_palestine, id: :state_state_relations_with_palestine, :class => "form-control edit" %>
   </div>
 </div>
 <br>
@@ -269,3 +269,11 @@
   </div>
 </div>
 <% end %>
+<script>
+$(function(){
+   $('.edit').froalaEditor({
+     heightMin: '300px',
+   })
+ });
+
+</script>
