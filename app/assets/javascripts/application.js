@@ -12,7 +12,6 @@
 //
 //= require jquery/jquery-3.2.1
 //= require jquery_ujs
-//= require turbolinks
 //= require jquery3
 //= require kit/popper
 //= require bootstrap/bootstrap.min

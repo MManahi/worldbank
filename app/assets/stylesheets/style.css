@@ -1302,3 +1302,56 @@ pre.prettyprint {
   font-size: 16px;
   padding: 5px;
 }
+
+.alert-long {
+  border: 0;
+  border-radius: 0;
+  color: #FFFFFF;
+  padding: 10px 15px;
+  font-size: 14px;
+  justify-content: right;
+}
+
+.alert-long .close {
+  font-size: 20px;
+  color: #FFFFFF;
+}
+
+.container .alert-long {
+  border-radius: 4px;
+}
+
+.navbar .alert-long {
+  border-radius: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 85px;
+  width: 100%;
+  z-index: 3;
+}
+
+.navbar:not(.navbar-transparent) .alert-long {
+  top: 70px;
+}
+
+.alert-long .alert-icon {
+  display: block;
+  font-size: 30px;
+  left: 15px;
+  position: absolute;
+  top: 50%;
+  margin-top: -22px;
+}
+
+.alert-long.message {
+  padding-right: 60px;
+}
+
+.alert-long i {
+  position: relative;
+  font-size: 20px;
+  top: 5px;
+  margin-top: -5px;
+  font-weight: 600;
+}

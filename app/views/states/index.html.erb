@@ -1,8 +1,7 @@
-<div id="mapdiv" style="width: 100%; background-color:#fff; height: 600px; padding: 0px; margin: 0px;"></div>
+<div id="mapdiv" style="width: 100%; background-color:#fff; height: 600px; padding: 0px; margin: 0px;" data-turbolinks="false"></div>
 <br>
+<%= render 'layouts/messages' %>
 <%= link_to 'اضافة دولة جديدة', new_state_path, :class => "d-block mx-auto col-md-3 btn btn-primary btn-lg text-lg" %>
-<br>
-<p id="notice"><%= notice %></p>
 <br>
 <div class=" mx-auto nav-tabs-navigation" dir="rtl">
   <div class="nav-tabs-wrapper">
@@ -189,8 +188,9 @@
   </div>
 </div>
 <script>
+
   AmCharts.theme = AmCharts.themes.light;
-  AmCharts.ready(function () {
+  AmCharts.ready(function() {
     var map = new AmCharts.AmMap();
     map.projection = "mercator";
     map.language = "ar";
@@ -207,4 +207,5 @@
     map.smallMap = new AmCharts.SmallMap();
     map.write("mapdiv");
   });
+
 </script>

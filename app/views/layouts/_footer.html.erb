@@ -4,17 +4,21 @@
 
       <nav class="footer-nav" dir="rtl">
         <ul>
-          <li>
-            <a href="#">الرئيسية</a>
-          </li>
-          |
-          <li>
-            <a href="#">حول الدليل</a>
-          </li>
-          |
-          <li>
-            <a href="#">تسجيل الدخول</a>
-          </li>
+          <li class="nav-item">
+            <%= link_to root_path, class: "nav-link" do %>
+            الرئيسية
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to states_path, class: "nav-link" do %>
+          دليل العالم
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to about_path, class: "nav-link" do %>
+        حول الدليل
+      <% end %>
+    </li>
         </ul>
       </nav>
 
