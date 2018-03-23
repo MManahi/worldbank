@@ -1,144 +1,347 @@
-<p id="notice"><%= notice %></p>
+<div class="wrapper">
+  <div class="page-header page-header-xs" data-parallax="false">
+    <div class="product-container">
+      <%= image_tag(@state.state_map, class: "page-header-sm img-fluid product-image img-map") %>
+    </div>
+  </div>
+  <div class="section profile-content">
+    <div class="container">
+      <div class="owner">
+        <div class="name">
+          <h1 class="title"><%= @state.state_name %><br/></h1>
+          <%= image_tag(@state.state_flag, class: "img-fluid img-flag") %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render 'layouts/messages' %>
+  <div class="nav-tabs-navigation" dir="rtl">
+    <div class="nav-tabs-wrapper">
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active font-weight-bold" data-toggle="tab" href="#state_info" role="tab">المعلومات العامة</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link font-weight-bold" data-toggle="tab" href="#political_status" role="tab">الوضع السياسي</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link font-weight-bold" data-toggle="tab" href="#foreign_affairs" role="tab">العلاقات الخارجية</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link font-weight-bold" data-toggle="tab" href="#current_issues" role="tab">القضايا الراهنة</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link font-weight-bold" data-toggle="tab" href="#parties_and_groups" role="tab">المشاركة السياسية</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link font-weight-bold" data-toggle="tab" href="#regime_members" role="tab">مؤسسة الرئاسة والحكومة</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link font-weight-bold" data-toggle="tab" href="#international_representation" role="tab">التمثيل الدولي</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link font-weight-bold" data-toggle="tab" href="#relation_with_palestine" role="tab"> العلاقة مع فلسطين</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <% no_data = "لا يوجد بيانات" %>
+  <!-- Tab panes -->
+  <div class="tab-content text-center">
+    <div class="tab-pane active" id="state_info" role="tabpanel">
+      <br>
+      <div class="col-md-6 text-center  d-block mx-auto" dir="rtl">
+        <div class="field">
+          <h5>اسم الدولة الرسمي باللغة العربية</h5>
+          <br>
+          <h6><%= @state.state_official_name.blank? ? no_data : @state.state_official_name %></h6>
+        </div>
+      </div>
+      <br>
+      <div class="separator-line"></div>
+      <br>
+      <div class="col-md-6 text-center  d-block mx-auto" dir="rtl">
+        <div class="field">
+          <h5>
+            اسم الدولة باللغة الانجليزية
+          </h5>
+          <br>
+          <h6><%= @state.state_name_en %></h6>
+        </div>
+      </div>
+      <br>
+      <div class="separator-line"></div>
+      <br>
+      <div class="col-md-6 text-center  d-block mx-auto" dir="rtl">
+        <div class="field">
+          <h5>اسم الدولة الرسمي باللغة الانجليزية
+          </h5>
+          <br>
+          <h6><%= @state.state_official_name_en.blank? ? no_data : @state.state_official_name_en %></h6>
+        </div>
+      </div>
+      <br>
+      <div class="separator-line"></div>
+      <br>
+      <div class="col-md-6 text-center  d-block mx-auto" dir="rtl">
+        <div class="field">
+          <h5>القارة التي تقع فيها الدولة</h5>
+          <br>
+          <h6><%= @state.state_continent %></h6>
+        </div>
+      </div>
+      <br>
+      <div class="separator-line"></div>
+      <br>
+      <div class="col-md-6 text-center  d-block mx-auto" dir="rtl">
+        <div class="field">
+          <h5>مساحة الدولة   <small>(كيلومتر مربع)</small></h5>
+          <br>
+          <h5><%= @state.state_size.blank? ? no_data : @state.state_size %>
+          </h5>
+        </div>
+      </div>
+      <br>
+      <div class="separator-line"></div>
+      <br>
+      <div class="col-md-6 text-center  d-block mx-auto" dir="rtl">
+        <div class="field">
+          <h5>التعداد السكاني   <small>(نسمة)</small></h5>
+          <br>
+          <h5><%= @state.state_population.blank? ? no_data :  @state.state_population %>
 
-<p>
-  <strong>State name:</strong>
-  <%= @state.state_name %>
-</p>
+          </h5>
+        </div>
+      </div>
+      <br>
+      <div class="separator-line"></div>
+      <br>
+      <div class="col-md-10 text-center  d-block mx-auto" dir="rtl">
+        <div class="field">
+          <h5>اهم المدن وتعدادها السكاني
+          </h5>
+          <br>
+          <h6><%= @state.state_major_cities.blank? ? no_data : raw(@state.state_major_cities) %></h6>
+        </div>
+      </div>
+      <br>
+      <div class="separator-line"></div>
+      <br>
+      <div class="col-md-6 text-center  d-block mx-auto" dir="rtl">
+        <div class="field">
+          <h5>لغة الدولة الرسمية</h5>
+          <br>
+          <h6><%= @state.state_official_lang %></h6>
+        </div>
+      </div>
+      <br>
+      <div class="separator-line"></div>
+      <br>
+      <div class="col-md-6 text-center  d-block mx-auto" dir="rtl">
+        <div class="field">
+          <h5>العملة الرسمية المتداولة</h5>
+          <br>
+          <h6><%= @state.state_currency %></h6>
+        </div>
+      </div>
+      <br>
+      <div class="separator-line"></div>
+      <br>
+      <div class="col-md-6 text-center  d-block mx-auto" dir="rtl">
+        <div class="field">
+          <h5>الديانة الرسمية</h5>
+          <br>
+          <h6><%= @state.state_religion.blank? ? no_data : @state.state_religion %></h6>
+        </div>
+      </div>
+      <br>
+      <div class="separator-line"></div>
+      <br>
+      <div class="col-md-10 text-center  d-block mx-auto" dir="rtl">
+        <div class="field">
+          <h5>الدول المجاورة للدولة
+          </h5>
+          <br>
+          <h6><%= raw(@state.state_neighbors) %></h6>
+        </div>
+      </div>
+      <br>
+      <div class="separator-line"></div>
+      <br>
+      <div class="col-md-10 text-center  d-block mx-auto" dir="rtl">
+        <div class="field">
+          <h5>طبيعة الدولة
+          </h5>
+          <br>
+          <h6><%= @state.state_nature.blank? ? no_data : raw(@state.state_nature) %></h6>
+        </div>
+      </div>
+      <br>
+      <div class="separator-line"></div>
+      <br>
+      <div class="col-md-10 text-center  d-block mx-auto" dir="rtl">
+        <div class="field">
+          <h5>اهم المناطق والمحافظات
+          </h5>
+          <br>
+          <h6><%= @state.state_provinces.blank? ? no_data : raw(@state.state_provinces) %></h6>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane" id="political_status" role="tabpanel">
+      <br>
+      <div class="col-md-10 text-center  d-block mx-auto" dir="rtl">
+        <div class="field">
+          <h5>نشأة الدولة
+          </h5>
+          <br>
+          <h6><%= @state.state_origin.blank? ? no_data : raw(@state.state_origin) %></h6>
+        </div>
+      </div>
+      <br>
+      <div class="separator-line"></div>
+      <br>
+      <div class="col-md-10 text-center  d-block mx-auto" dir="rtl">
+        <div class="field">
+          <h5>الخلفية السياسية للدولة
+          </h5>
+          <br>
+          <h6><%= @state.state_political_background.blank? ? no_data : raw(@state.state_political_background) %></h6>
+        </div>
+      </div>
+      <br>
+      <div class="separator-line"></div>
+      <br>
+      <div class="col-md-10 text-center  d-block mx-auto" dir="rtl">
+        <div class="field">
+          <h5>نظام الحكم في الدولة
+          </h5>
+          <br>
+          <h6><%= @state.state_regime_type.blank? ? no_data : raw(@state.state_regime_type) %></h6>
+        </div>
+      </div>
+      <br>
+      <div class="separator-line"></div>
+      <br>
+      <div class="col-md-10 text-center  d-block mx-auto" dir="rtl">
+        <div class="field">
+          <h5>النظام الحكومي والبرلمان
+          </h5>
+          <br>
+          <h6><%= @state.state_goverment.blank? ? no_data : raw(@state.state_goverment) %></h6>
+        </div>
+      </div>
+      <br>
+      <div class="separator-line"></div>
+      <br>
+      <div class="col-md-10 text-center  d-block mx-auto" dir="rtl">
+        <div class="field">
+          <h5>دستور الدولة
+          </h5>
+          <br>
+          <h6><%= @state.state_constitution.blank? ? no_data : raw(@state.state_constitution) %></h6>
+        </div>
+      </div>
+      <br>
+      <div class="separator-line"></div>
+      <br>
+    </div>
+    <div class="tab-pane" id="foreign_affairs" role="tabpanel">
+      <br>
+      <div class="col-md-10 text-center  d-block mx-auto" dir="rtl">
+        <div class="field">
+          <h5>العلاقات الخارجية
+          </h5>
+          <br>
+          <h6><%= @state.state_foreign_affairs.blank? ? no_data : raw(@state.state_foreign_affairs) %></h6>
+        </div>
+      </div>
+      <br>
+      <div class="separator-line"></div>
+      <br>
+    </div>
+    <div class="tab-pane" id="current_issues" role="tabpanel">
+      <br>
+      <div class="col-md-10 text-center  d-block mx-auto" dir="rtl">
+        <div class="field">
+          <h5>
+            القضايا الراهنة
+          </h5>
+          <br>
+          <h6><%= @state.state_current_issues.blank? ? no_data : raw(@state.state_current_issues) %></h6>
+        </div>
+      </div>
+      <br>
+      <div class="separator-line"></div>
+      <br>
+    </div>
+    <div class="tab-pane" id="parties_and_groups" role="tabpanel">
+      <br>
+      <div class="col-md-10 text-center  d-block mx-auto" dir="rtl">
+        <div class="field">
+          <h5>
+           الاحزاب و الجماعات السياسية
+          </h5>
+          <br>
+          <h6><%= @state.state_political_parties.blank? ? no_data : raw(@state.state_political_parties) %></h6>
+        </div>
+      </div>
+      <br>
+      <div class="separator-line"></div>
+      <br>
+    </div>
+    <div class="tab-pane" id="regime_members" role="tabpanel">
+      <br>
+      <div class="col-md-10 text-center  d-block mx-auto" dir="rtl">
+        <div class="field">
+          <h5>
+            التشكيل الرئاسي والحكومي
+          </h5>
+          <br>
+          <h6><%= @state.state_regime_members.blank? ? no_data : raw(@state.state_regime_members) %></h6>
+        </div>
+      </div>
+      <br>
+      <div class="separator-line"></div>
+      <br>
+    </div>
+    <div class="tab-pane" id="international_representation" role="tabpanel">
+      <br>
+      <div class="col-md-10 text-center  d-block mx-auto" dir="rtl">
+        <div class="field">
+          <h5>
+          التمثيل الدولي والسفراء
+          </h5>
+          <br>
+          <h6><%= @state.state_international_representation.blank? ? no_data : raw(@state.state_international_representation) %></h6>
+        </div>
+      </div>
+      <br>
 
-<p>
-  <strong>State official name:</strong>
-  <%= @state.state_official_name %>
-</p>
-
-<p>
-  <strong>State name en:</strong>
-  <%= @state.state_name_en %>
-</p>
-
-<p>
-  <strong>State official name en:</strong>
-  <%= @state.state_official_name_en %>
-</p>
-
-<p>
-  <strong>State continent:</strong>
-  <%= @state.state_continent %>
-</p>
-
-<p>
-  <strong>State size:</strong>
-  <%= @state.state_size %>
-</p>
-
-<p>
-  <strong>State population:</strong>
-  <%= @state.state_population %>
-</p>
-
-<p>
-  <strong>State major cities:</strong>
-  <%= raw(@state.state_major_cities) %>
-</p>
-
-<p>
-  <strong>State official lang:</strong>
-  <%= @state.state_official_lang %>
-</p>
-
-<p>
-  <strong>State currency:</strong>
-  <%= @state.state_currency %>
-</p>
-
-<p>
-  <strong>State religion:</strong>
-  <%= @state.state_religion %>
-</p>
-
-<p>
-  <strong>State neighbors:</strong>
-  <%= @state.state_neighbors %>
-</p>
-
-<p>
-  <strong>State nature:</strong>
-  <%= @state.state_nature %>
-</p>
-
-<p>
-  <strong>State provinces:</strong>
-  <%= @state.state_provinces %>
-</p>
-
-<p>
-  <strong>State flag:</strong>
-  <%= @state.state_flag %>
-</p>
-
-<p>
-  <strong>State map:</strong>
-  <%= @state.state_map %>
-</p>
-
-<p>
-  <strong>State origin:</strong>
-  <%= @state.state_origin %>
-</p>
-
-<p>
-  <strong>State political background:</strong>
-  <%= @state.state_political_background %>
-</p>
-
-<p>
-  <strong>State regime type:</strong>
-  <%= @state.state_regime_type %>
-</p>
-
-<p>
-  <strong>State goverment:</strong>
-  <%= @state.state_goverment %>
-</p>
-
-<p>
-  <strong>State constitution:</strong>
-  <%= @state.state_constitution %>
-</p>
-
-<p>
-  <strong>State foreign affairs:</strong>
-  <%= @state.state_foreign_affairs %>
-</p>
-
-<p>
-  <strong>State current issues:</strong>
-  <%= @state.state_current_issues %>
-</p>
-
-<p>
-  <strong>State political parties:</strong>
-  <%= @state.state_political_parties %>
-</p>
-
-<p>
-  <strong>State regime members:</strong>
-  <%= @state.state_regime_members %>
-</p>
-
-<p>
-  <strong>State international representation:</strong>
-  <%= @state.state_international_representation %>
-</p>
-
-<p>
-  <strong>State relations with palestine:</strong>
-  <%= @state.state_relations_with_palestine %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @state.user %>
-</p>
-
-<%= link_to 'Edit', edit_state_path(@state) %> |
-<%= link_to 'Back', states_path %>
+    </div>
+      <div class="tab-pane" id="relation_with_palestine" role="tabpanel">
+        <div class="separator-line"></div>
+        <br>
+        <br>
+        <div class="col-md-10 text-center  d-block mx-auto" dir="rtl">
+          <div class="field">
+            <h5>
+            علاقة الدولة بالقضية الفلسطينية
+            </h5>
+            <br>
+            <h6><%= @state.state_relations_with_palestine.blank? ? no_data : raw(@state.state_relations_with_palestine) %></h6>
+          </div>
+        </div>
+        <br>
+        <div class="separator-line"></div>
+        <br>
+      </div>
+  </div>
+  <br>
+  <div class="col-md-10 text-center  d-block mx-auto" dir="rtl">
+    <%= link_to 'تعديل', edit_state_path(@state), :class => "btn btn-warning btn-lg" %>
+    <br>
+    <br>
+    <%= link_to 'الرجوع للسابق', states_path , :class => "btn btn-primary btn-lg"%>
+  </div>
