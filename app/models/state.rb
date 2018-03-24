@@ -21,4 +21,6 @@ class State < ApplicationRecord
   def format_state_size(state_size)
     state_size.to_s.scan(/.../).map {|e| e.to_i }
   end
+
+   # self.per_page = 10
 end

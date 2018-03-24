@@ -1,0 +1,19 @@
+<div class="col-md-8 text-center  d-block mx-auto" dir="rtl">
+  <%= form_with(url: states_path, method: 'get', local: true) do |form| %>
+  <i class="fa fa-search"></i>
+  <%= form.label :q, 'اجراء عملية بحث:' %>
+  <%= form.text_field :q, id: 'q', value: params[:q], class:"form-control col-md-4 mx-auto text-center" %>
+  <%= form.submit 'Search', value: "بحث", class: " col-md-4  btn btn-info my-3  text-lg" %>
+<% end %>
+<% if params[:commit] == 'بحث' %>
+  <%= javascript_tag do %>
+  $(document).ready(function() { $('body,html').animate({ scrollTop: 800 }, 800); });
+<% end %>
+<p id="search_result">الدولة أو الدول التي تم الحصول عليها بعد عملية البحث: (<%= @search_result %>)
+</p>
+<% if @search_result == 0 %>
+<%= link_to "الرجوع للسابق", states_path , :class => "btn btn-lg btn-warning" %>
+<% end %>
+<% end %>
+</div>
+<br>

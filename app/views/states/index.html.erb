@@ -1,34 +1,12 @@
 <div id="mapdiv" style="width: 100%; background-color:#fff; height: 600px; padding: 0px; margin: 0px;" data-turbolinks="false"></div>
 <br>
 <%= render 'layouts/messages' %>
-<%= link_to 'اضافة دولة جديدة', new_state_path, :class => "d-block mx-auto col-md-3 btn btn-primary btn-lg text-lg" %>
-<br>
-<div class=" mx-auto nav-tabs-navigation" dir="rtl">
-  <div class="nav-tabs-wrapper">
-    <ul class="nav nav-tabs" role="tablist">
-      <li class="nav-item">
-        <a class="nav-link active font-weight-bold" data-toggle="tab" href="#states_all" role="tab">جميع الدول</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link font-weight-bold" data-toggle="tab" href="#states_asia" role="tab">قارة آسيا</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link font-weight-bold" data-toggle="tab" href="#states_africa" role="tab">قارة افريقيا</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link font-weight-bold" data-toggle="tab" href="#states_north_america" role="tab">قارة امريكا الشمالية</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link font-weight-bold" data-toggle="tab" href="#states_south_america" role="tab">قارة امريكا الجنوبية</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link font-weight-bold" data-toggle="tab" href="#states_australia" role="tab">قارة استراليا</a>
-      </li>
-    </ul>
-  </div>
+<%= render 'shared/search' %>
+<div class="col-md-3 d-block mx-0">
+  <%= link_to 'اضافة دولة جديدة', new_state_path, :class => "btn btn-primary btn-lg text-lg ml-auto" %>
 </div>
-<div class="tab-content text-center">
-  <div class="tab-pane active" id="states_all" role="tabpanel">
+
+<br>
     <div class="row mx-auto">
       <% @states.each do |state| %>
         <div class="col-md-6 col-sm-4 col-xs-6 card card-register mx-auto px-auto">
@@ -53,139 +31,10 @@
         </div>
       <% end %>
     </div>
-  </div>
-  <div class="tab-pane" id="states_asia" role="tabpanel">
-    <div class="row mx-auto">
-      <% @states_asia.each do |state| %>
-        <div class="col-md-6 col-sm-4 col-xs-6 card card-register mx-auto px-auto">
-          <%= image_tag(state.state_flag, :class => "img-rounded img-state-index d-block mx-auto") %>
-          <h4 class="text-center">
-            <%= state.state_name %></h4>
-          <br>
-          <h6 class="text-center">
-            الاسم الرسمي للدولة :
-            <%= state.state_official_name %></h6>
-          <h6 class="text-center" dir="rtl">
-            الاسم باللغة الانجليزية :
-            <%= state.state_name_en %></h6>
-          <h6 class="text-center">
-            القارة :
-            <%= state.state_continent %></h6>
-          <span class="text-center" dir="rtl">
-            <%= link_to 'عرض', state, :class => "btn btn-info btn-link btn-lg-custom" %>
-            <%= link_to 'تعديل', edit_state_path(state), :class => "btn btn-warning btn-link btn-lg-custom" %>
-            <%= link_to 'حذف', state, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-link btn-lg-custom" %>
-          </span>
-        </div>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="tab-pane" id="states_africa" role="tabpanel">
-    <div class="row mx-auto">
-      <% @states_africa.each do |state| %>
-        <div class="col-md-6 col-sm-4 col-xs-6 card card-register mx-auto px-auto">
-          <%= image_tag(state.state_flag, :class => "img-rounded img-state-index d-block mx-auto") %>
-          <h4 class="text-center">
-            <%= state.state_name %></h4>
-          <br>
-          <h6 class="text-center">
-            الاسم الرسمي للدولة :
-            <%= state.state_official_name %></h6>
-          <h6 class="text-center" dir="rtl">
-            الاسم باللغة الانجليزية :
-            <%= state.state_name_en %></h6>
-          <h6 class="text-center">
-            القارة :
-            <%= state.state_continent %></h6>
-          <span class="text-center" dir="rtl">
-            <%= link_to 'عرض', state, :class => "btn btn-info btn-link btn-lg-custom" %>
-            <%= link_to 'تعديل', edit_state_path(state), :class => "btn btn-warning btn-link btn-lg-custom" %>
-            <%= link_to 'حذف', state, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-link btn-lg-custom" %>
-          </span>
-        </div>
-      <% end %>
-    </div>
-  </div>
-  <div class="tab-pane" id="states_north_america" role="tabpanel">
-    <div class="row mx-auto">
-      <% @states_north_america.each do |state| %>
-        <div class="col-md-6 col-sm-4 col-xs-6 card card-register mx-auto px-auto">
-          <%= image_tag(state.state_flag, :class => "img-rounded img-state-index d-block mx-auto") %>
-          <h4 class="text-center">
-            <%= state.state_name %></h4>
-          <br>
-          <h6 class="text-center">
-            الاسم الرسمي للدولة :
-            <%= state.state_official_name %></h6>
-          <h6 class="text-center" dir="rtl">
-            الاسم باللغة الانجليزية :
-            <%= state.state_name_en %></h6>
-          <h6 class="text-center">
-            القارة :
-            <%= state.state_continent %></h6>
-          <span class="text-center" dir="rtl">
-            <%= link_to 'عرض', state, :class => "btn btn-info btn-link btn-lg-custom" %>
-            <%= link_to 'تعديل', edit_state_path(state), :class => "btn btn-warning btn-link btn-lg-custom" %>
-            <%= link_to 'حذف', state, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-link btn-lg-custom" %>
-          </span>
-        </div>
-      <% end %>
-    </div>
-  </div>
-  <div class="tab-pane" id="states_south_america" role="tabpanel">
-    <div class="row mx-auto">
-      <% @states_south_america.each do |state| %>
-        <div class="col-md-6 col-sm-4 col-xs-6 card card-register mx-auto px-auto">
-          <%= image_tag(state.state_flag, :class => "img-rounded img-state-index d-block mx-auto") %>
-          <h4 class="text-center">
-            <%= state.state_name %></h4>
-          <br>
-          <h6 class="text-center">
-            الاسم الرسمي للدولة :
-            <%= state.state_official_name %></h6>
-          <h6 class="text-center" dir="rtl">
-            الاسم باللغة الانجليزية :
-            <%= state.state_name_en %></h6>
-          <h6 class="text-center">
-            القارة :
-            <%= state.state_continent %></h6>
-          <span class="text-center" dir="rtl">
-            <%= link_to 'عرض', state, :class => "btn btn-info btn-link btn-lg-custom" %>
-            <%= link_to 'تعديل', edit_state_path(state), :class => "btn btn-warning btn-link btn-lg-custom" %>
-            <%= link_to 'حذف', state, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-link btn-lg-custom" %>
-          </span>
-        </div>
-      <% end %>
-    </div>
-  </div>
-  <div class="tab-pane" id="states_australia" role="tabpanel">
-    <div class="row mx-auto">
-      <% @states_australia.each do |state| %>
-        <div class="col-md-6 col-sm-4 col-xs-6 card card-register mx-auto px-auto">
-          <%= image_tag(state.state_flag, :class => "img-rounded img-state-index d-block mx-auto") %>
-          <h4 class="text-center">
-            <%= state.state_name %></h4>
-          <br>
-          <h6 class="text-center">
-            الاسم الرسمي للدولة :
-            <%= state.state_official_name %></h6>
-          <h6 class="text-center" dir="rtl">
-            الاسم باللغة الانجليزية :
-            <%= state.state_name_en %></h6>
-          <h6 class="text-center">
-            القارة :
-            <%= state.state_continent %></h6>
-          <span class="text-center" dir="rtl">
-            <%= link_to 'عرض', state, :class => "btn btn-info btn-link btn-lg-custom" %>
-            <%= link_to 'تعديل', edit_state_path(state), :class => "btn btn-warning btn-link btn-lg-custom" %>
-            <%= link_to 'حذف', state, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-link btn-lg-custom" %>
-          </span>
-        </div>
-      <% end %>
-    </div>
-  </div>
+    <div class="pagination justify-content-center">
+  <%= will_paginate @states, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
 </div>
+
 <script>
 
   AmCharts.theme = AmCharts.themes.light;

@@ -1,21 +1,27 @@
 class StatesController < ApplicationController
-  before_action :set_state, only: [:show, :edit, :update, :destroy]
+  before_action :set_state, only: %i[show edit update destroy]
   before_action :authenticate_user!
   # GET /states
   # GET /states.json
   def index
-    @states = State.all
-    @states_asia = State.states_asia
-    @states_africa = State.states_africa
-    @states_north_america = State.states_north_america
-    @states_south_america = State.states_south_america
-    @states_australia = State.states_australia
+    if params[:q]
+      search_term = params[:q]
+      @states = State.where('state_name ilike :search OR state_official_name ilike :search OR state_name_en ilike :search', search: "%#{search_term}%").paginate(:page => params[:page]).per_page(10)
+      @search_result = @states.count
+
+    else
+      @states = State.all.paginate(:page => params[:page]).per_page(10)
+    # @states_asia = State.states_asia.page(params[:page]).per_page(10)
+    # @states_africa = State.states_africa.page(params[:page]).per_page(10)
+    # @states_north_america = State.states_north_america.page(params[:page]).per_page(10)
+    # @states_south_america = State.states_south_america.page(params[:page]).per_page(10)
+    # @states_australia = State.states_australia.page(params[:page]).per_page(10)
+  end
   end
 
   # GET /states/1
   # GET /states/1.json
-  def show
-  end
+  def show; end
 
   # GET /states/new
   def new
@@ -23,13 +29,12 @@ class StatesController < ApplicationController
   end
 
   # GET /states/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /states
   # POST /states.json
   def create
-     @user = current_user
+    @user = current_user
     @state = @user.states.new(state_params)
 
     respond_to do |format|
@@ -68,13 +73,14 @@ class StatesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_state
-      @state = State.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def state_params
-      params.require(:state).permit(:state_name, :state_official_name, :state_name_en, :state_official_name_en, :state_continent, :state_size, :state_population, :state_major_cities, :state_official_lang, :state_currency, :state_religion, :state_neighbors, :state_nature, :state_provinces, :state_flag, :state_map, :state_origin, :state_political_background, :state_regime_type, :state_goverment, :state_constitution, :state_foreign_affairs, :state_current_issues, :state_political_parties, :state_regime_members, :state_international_representation, :state_relations_with_palestine)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_state
+    @state = State.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def state_params
+    params.require(:state).permit(:state_name, :state_official_name, :state_name_en, :state_official_name_en, :state_continent, :state_size, :state_population, :state_major_cities, :state_official_lang, :state_currency, :state_religion, :state_neighbors, :state_nature, :state_provinces, :state_flag, :state_map, :state_origin, :state_political_background, :state_regime_type, :state_goverment, :state_constitution, :state_foreign_affairs, :state_current_issues, :state_political_parties, :state_regime_members, :state_international_representation, :state_relations_with_palestine)
+  end
 end
