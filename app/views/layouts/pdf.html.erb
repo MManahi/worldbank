@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PDF</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
+    <meta name="viewport" content="width=device-width"/>
+    <link href="https://fonts.googleapis.com/css?family=Cairo|Lateef" rel="stylesheet">
+    <%= wicked_pdf_stylesheet_link_tag "bootstrap.min.css" %>
+    <%= wicked_pdf_stylesheet_link_tag "nucleo-icons.css" %>
+    <%= wicked_pdf_stylesheet_link_tag "froala_editor.min.css" %>
+    <%= wicked_pdf_stylesheet_link_tag "froala_style.min.css" %>
+    <%= wicked_pdf_stylesheet_link_tag "font-awesome.min.css" %>
+    <%= wicked_pdf_stylesheet_link_tag "paper-kit.css" %>
+    <%= wicked_pdf_stylesheet_link_tag "ammap.css" %>
+    <%= wicked_pdf_stylesheet_link_tag "char_counter.min.css" %>
+    <%= wicked_pdf_stylesheet_link_tag "code_view.min.css" %>
+    <%= wicked_pdf_stylesheet_link_tag "colors.min.css" %>
+    <%= wicked_pdf_stylesheet_link_tag "draggable.min.css" %>
+    <%= wicked_pdf_stylesheet_link_tag "emoticons.min" %>
+    <%= wicked_pdf_stylesheet_link_tag "table.min.css" %>
+    <%= wicked_pdf_stylesheet_link_tag "style.css" %>
+    <%= wicked_pdf_javascript_include_tag "ammap.js" %>
+    <%= wicked_pdf_javascript_include_tag "worldLow.js" %>
+    <%= wicked_pdf_javascript_include_tag "ar.js" %>
+    <%= wicked_pdf_javascript_include_tag "light.js" %>
+    <%= wicked_pdf_javascript_include_tag "froala_editor.min.js" %>
+    <%= wicked_pdf_javascript_include_tag "font_family.min.js" %>
+    <%= wicked_pdf_javascript_include_tag "font_size.min.js" %>
+    <%= wicked_pdf_javascript_include_tag "table.min.js" %>
+    <style media="screen">
+      @import url('https://fonts.googleapis.com/css?family=Cairo');
+      body {
+        text-align: center;
+        font-family: 'Cairo', sans-serif;
+        margin: 0;
+      }
+      p {
+        font-size: 20px;
+        text-align: right;
+      }
+      .img-flag {
+        height: 128px;
+      }
+      .header {
+        font-size: 24px;
+      }
+      .state {
+        font-size: 28px;
+      }
+      .title {
+        font-size: 24px;
+      }
+      .subtitel {
+        font-size: 22px;
+      }
+      .content {
+        font-size: 20px;
+      }
+      hr.hr-thick {
+        border-top: 4px double #8c8b8b;
+        text-align: center;
+      }
+      hr.hr-light {
+        width: 120%;
+      }
+    </style>
+  </head>
+  <body dir="rtl" class="d-block mx-auto">
+    <div class='container-fluid'>
+      <% no_data = "لا يوجد بيانات" %>
+        <%= wicked_pdf_image_tag(@state.state_flag, class: " img-flag") %>
+        <p class="state" style="text-align: center;">
+          دولة
+          <%= @state.state_name %></p>
+        <p class="title" style="text-align: center;">اولا المعلومات العامة</p>
+        <hr class="hr-thick">
+        <p class="subtitel" style="text-align:right;">اسم الدولة الرسمي باللغة العربية:
+          <%= @state.state_official_name %></p>
+        <hr class="hr-light">
+        <p class="subtitel" style="text-align:right;">اسم الدولة باللغة الانجيلزية:
+          <%= @state.state_name_en %></p>
+        <hr class="hr-light">
+        <p class="subtitel" style="text-align:right;">اسم الدولة الرسمي باللغة الانجليزية:
+          <%= @state.state_official_name_en.blank? ? no_data : @state.state_official_name_en %></p>
+        <hr class="hr-light">
+        <p class="subtitel" style="text-align:right;">القارة التي تقع فيها الدولة:
+          <%= @state.state_continent %></p>
+        <hr class="hr-light">
+        <p class="subtitel" style="text-align:right;">مساحة الدولة (<small>كيلومتر مربع</small>) :
+          <%= @state.state_size.blank? ? no_data : @state.state_size %>
+        </p>
+        <hr class="hr-light">
+        <p class="subtitel" style="text-align:right;">التعداد السكاني (<small>نسمة</small>) :
+          <%= @state.state_population.blank? ? no_data : @state.state_population %>
+        </p>
+        <hr class="hr-light">
+        <p class="subtitel" style="text-align:right;">اهم المدن وتعدادها السكاني:
+          <%= @state.state_major_cities.blank? ? no_data : raw(@state.state_major_cities) %></p>
+        <hr class="hr-light">
+        <p class="subtitel" style="text-align:right;">لغة الدولة الرسمية:
+          <%= @state.state_official_lang %></p>
+        <hr class="hr-light">
+        <p class="subtitel" style="text-align:right;">العملة الرسمية المتداولة:
+          <%= @state.state_currency %></p>
+        <hr class="hr-light">
+        <p class="subtitel" style="text-align:right;">الديانة الرسمية:
+          <%= @state.state_religion.blank? ? no_data : @state.state_religion %></p>
+        <hr class="hr-light">
+        <p class="subtitel" style="text-align:right;">الدول المجاورة:
+          <%= raw(@state.state_neighbors) %></p>
+        <hr class="hr-light">
+        <p class="subtitel" style="text-align:right;">طبيعة الدولة:
+          <%= @state.state_nature.blank? ? no_data : raw(@state.state_nature) %></p>
+        <hr class="hr-light">
+        <p class="subtitel" style="text-align:right;">اهم المناطق والمحافظات:
+          <%= @state.state_provinces.blank? ? no_data : raw(@state.state_provinces) %></p>
+        <hr class="hr-light">
+        <p class="title" style="text-align: center;">ثانيا الوضع السياسي</p>
+        <hr class="hr-thick">
+        <p class="subtitel" style="text-align:right;">نشأة الدولة:
+          <%= @state.state_origin.blank? ? no_data : raw(@state.state_origin) %></p>
+        <hr class="hr-light">
+        <p class="subtitel" style="text-align:right;">الخلفية السياسية للدولة
+          <%= @state.state_political_background.blank? ? no_data : raw(@state.state_political_background) %></p>
+        <hr class="hr-light">
+        <p class="subtitel" style="text-align:right;">نظام الحكم في الدولة:
+          <%= @state.state_regime_type.blank? ? no_data : raw(@state.state_regime_type) %></p>
+        <hr class="hr-light">
+        <p class="subtitel" style="text-align:right;">النظام الحكومي والبرلمان:
+          <%= @state.state_goverment.blank? ? no_data : raw(@state.state_goverment) %></p>
+        <hr class="hr-light">
+        <p class="subtitel" style="text-align:right;">دستور الدولة:
+          <%= @state.state_constitution.blank? ? no_data : raw(@state.state_constitution) %></p>
+        <hr class="hr-light">
+        <p class="title" style="text-align: center;">ثالثا العلاقات الخارجية</p>
+        <hr class="hr-thick">
+        <p class="subtitel" style="text-align:right;">العلاقات الخارجية:
+          <%= @state.state_foreign_affairs.blank? ? no_data : raw(@state.state_foreign_affairs) %></p>
+        <hr class="hr-light">
+        <p class="title" style="text-align: center;">رابعا القضايا الراهنة
+        </p>
+        <hr class="hr-thick">
+        <p class="subtitel" style="text-align:right;">
+          القضايا الراهنة:
+          <%= @state.state_current_issues.blank? ? no_data : raw(@state.state_current_issues) %></p>
+        <hr class="hr-light">
+        <p class="title" style="text-align: center;">خامسا المشاركة السياسية</p>
+        <hr class="hr-thick">
+        <p class="subtitel" style="text-align:right;">الاحزاب والجماعات السياسية:
+          <%= @state.state_political_parties.blank? ? no_data : raw(@state.state_political_parties) %></p>
+        <hr class="hr-light">
+        <p class="title" style="text-align: center;">سادسا مؤسسة الرئاسة والحكومة</p>
+        <hr class="hr-thick">
+        <p class="subtitel" style="text-align:right;">التشكيل الرئاسي والحكومي:
+          <%= @state.state_regime_members.blank? ? no_data : raw(@state.state_regime_members) %></p>
+        <hr class="hr-light">
+        <p class="title" style="text-align: center;">سابعا التمثيل الدولي</p>
+        <hr class="hr-thick">
+        <p class="subtitel" style="text-align:right;">التمثيل الدولي والسفراء
+          <%= @state.state_international_representation.blank? ? no_data : raw(@state.state_international_representation) %></p>
+        <hr class="hr-light">
+        <p class="title" style="text-align: center;">ثامنا العلاقة مع فلسطين</p>
+        <hr class="hr-thick">
+        <p class="subtitel" style="text-align:right;">علاقة الدولة بالقضية الفلسطينية:
+          <%= @state.state_relations_with_palestine.blank? ? no_data : raw(@state.state_relations_with_palestine) %></p>
+        <hr class="hr-light">
+      </div>
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </body>
+  </html>

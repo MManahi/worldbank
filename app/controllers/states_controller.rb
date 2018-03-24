@@ -6,11 +6,11 @@ class StatesController < ApplicationController
   def index
     if params[:q]
       search_term = params[:q]
-      @states = State.where('state_name ilike :search OR state_official_name ilike :search OR state_name_en ilike :search', search: "%#{search_term}%").paginate(:page => params[:page]).per_page(10)
+      @states = State.where('state_name ilike :search OR state_official_name ilike :search OR state_name_en ilike :search', search: "%#{search_term}%").paginate(page: params[:page]).per_page(10)
       @search_result = @states.count
 
     else
-      @states = State.all.paginate(:page => params[:page]).per_page(10)
+      @states = State.all.paginate(page: params[:page]).per_page(10)
     # @states_asia = State.states_asia.page(params[:page]).per_page(10)
     # @states_africa = State.states_africa.page(params[:page]).per_page(10)
     # @states_north_america = State.states_north_america.page(params[:page]).per_page(10)
@@ -21,7 +21,17 @@ class StatesController < ApplicationController
 
   # GET /states/1
   # GET /states/1.json
-  def show; end
+  def show
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: @state.state_name.to_s,
+               template: 'states/show.html.erb',
+               disposition: 'attachment',
+               layout: 'pdf.html'
+      end
+    end
+   end
 
   # GET /states/new
   def new

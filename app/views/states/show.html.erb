@@ -1,7 +1,9 @@
 <div class="wrapper">
   <div class="page-header page-header-xs" data-parallax="false">
     <div class="product-container">
+      <% unless request.format.to_sym == :pdf %>
       <%= image_tag(@state.state_map, class: "page-header-sm img-fluid product-image img-map") %>
+      <% end %>
     </div>
   </div>
   <div class="section profile-content">
@@ -9,12 +11,21 @@
       <div class="owner">
         <div class="name">
           <h1 class="title"><%= @state.state_name %><br/></h1>
+          <% unless request.format.to_sym == :pdf %>
           <%= image_tag(@state.state_flag, class: "img-fluid img-flag") %>
+          <% end %>
         </div>
+      </div>
+      <div class="col-md-4 text-center  d-block mx-auto" dir="rtl">
+        <% unless request.format.to_sym == :pdf %>
+        <%= link_to 'حفظ بصيغة PDF', state_path(@state, :format => :pdf), :class => "btn btn-lg btn-primary", :target => "_blank" %>
+        <% end %>
       </div>
     </div>
   </div>
+
 </div>
+
 <%= render 'layouts/messages' %>
   <div class="nav-tabs-navigation" dir="rtl">
     <div class="nav-tabs-wrapper">
@@ -340,8 +351,10 @@
   </div>
   <br>
   <div class="col-md-10 text-center  d-block mx-auto" dir="rtl">
+      <% unless request.format.to_sym == :pdf %>
     <%= link_to 'تعديل', edit_state_path(@state), :class => "btn btn-warning btn-lg" %>
     <br>
     <br>
     <%= link_to 'الرجوع للسابق', states_path , :class => "btn btn-primary btn-lg"%>
+    <% end %>
   </div>
