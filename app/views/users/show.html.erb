@@ -1,14 +1,51 @@
-<p id="notice"><%= notice %></p>
+<br>
+<div class="col-md-8 text-center  d-block mx-auto" dir="rtl">
+  <%= render 'layouts/messages' %>
+</div>
+<br>
 
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
+<!-- elsif role == 'authorized_user' puts 'مستخدم مفعل' elsif role == 'data_entry' puts 'مستخدم مفعل' elsif role == 'admin' puts 'glfddf' else puts 'غير معروف' end -->
 
-<p>
-  <strong>Role:</strong>
-  <%= @user.role %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<div class="col-md-4 text-center  d-block mx-auto" dir="rtl">
+  <div class="field">
+    <p>اسم المستخدم</p>
+    <%= @user.username %>
+  </div>
+</div>
+<hr>
+<div class="col-md-4 text-center  d-block mx-auto" dir="rtl">
+  <div class="field">
+    <p>البريد الالكتروني</p>
+    <%= @user.email %>
+  </div>
+</div>
+<hr>
+<div class="col-md-4 text-center  d-block mx-auto" dir="rtl">
+  <div class="field">
+    <p>الصلاحية</p>
+    <% if @user.role == 'user' %>
+      <%= 'مستخدم غير مفعل' %>
+      <% elsif  @user.role == 'authorized_user' %>
+        <%= 'مستخدم مفعل' %>
+        <% elsif  @user.role == 'data_entry' %>
+          <%= 'مدخل بيانات' %>
+          <% elsif  @user.role == 'admin' %>
+            <%= 'مدير نظام' %>
+          <% else %>
+            <%= 'غير معروف' %>
+          <% end %>
+        </div>
+      </div>
+      <hr>
+      <div class="col-md-4 text-center  d-block mx-auto" dir="rtl">
+        <div class="field">
+          <p>تاريخ التسجيل</p>
+          <%= @user.created_at.strftime("%d/%m/%Y") %>
+        </div>
+      </div>
+      <hr>
+      <div class="mx-auto px-auto text-center justify-content-center align-items-center" dir="rtl">
+        <%= link_to 'تعديل', edit_user_registration_path(@user), :class => "btn btn-warning btn-lg" %>
+        <br><br>
+        <%= link_to 'الرجوع للسابق', users_path, :class => "btn btn-primary btn-lg" %>
+      </div>

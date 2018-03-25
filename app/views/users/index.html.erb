@@ -1,29 +1,77 @@
 <p id="notice"><%= notice %></p>
+<div class="mx-auto px-auto text-center justify-content-center align-items-center" dir="rtl">
+  <h2>ادارة المستخدمين</h2>
+  <br>
 
-<h1>Users</h1>
+  <div class="table-responsive mx-5">
+    <table class="table table-bordered  mx-auto ">
+      <thead dir="rtl">
+        <tr class="text-center">
+          <th>اسم المستخدم</th>
+          <th>البريد الالكتروني</th>
+          <th>الصلاحية</th>
+          <th>تاريخ التسجيل</th>
+          <th>عدد مرات تسجيل الدخول</th>
+          <th>تغيير الصلاحية</th>
+          <th>الاعدادات</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr dir="rtl">
+            <td><%= user.username %></td>
+            <td><%= user.email %></td>
+            <td>
+              <% if user.role == 'user' %>
+                <%= 'مستخدم غير مفعل' %>
+                <% elsif  user.role == 'authorized_user' %>
+                  <%= 'مستخدم مفعل' %>
+                  <% elsif  user.role == 'data_entry' %>
+                    <%= 'مدخل بيانات' %>
+                    <% elsif  user.role == 'admin' %>
+                      <%= 'مدير نظام' %>
+                    <% else %>
+                      <%= 'غير معروف' %>
+                    <% end %>
+                  </div>
+                </td>
+                <td><%= user.created_at.strftime("%d/%m/%Y") %></td>
+                <td><%= user.sign_in_count %></td>
+                <td >
+                  <% if user.role == "user" %>
+                    <%= button_to "تفعيل المستخدم", user_path(user.id, user: {role: "authorized_user"}), method: :put, class: "btn btn-success" %>
+                    <% elsif  user.role == "authorized_user" %>
+                      <%= button_to "مدخل بيانات", user_path(user.id, user: {role: "data_entry"}), method: :put, class: "btn btn-info" %><hr>
+                      <%= button_to "مدير نظام", user_path(user.id, user: {role: "admin"}), method: :put, class: "btn btn-danger" %><hr>
+                      <%= button_to "الغاء تفعيل المستخدم", user_path(user.id, user: {role: "user"}), method: :put, class: "btn btn-default" %>
+                      <% elsif  user.role == "data_entry" %>
+                        <%= button_to "مستخدم مفعل", user_path(user.id, user: {role: "authorized_user"}), method: :put, class: "btn btn-warning" %><hr>
+                        <%= button_to "مدير نظام", user_path(user.id, user: {role: "admin"}), method: :put, class: "btn btn-danger" %><hr>
+                        <%= button_to "الغاء تفعيل المستخدم", user_path(user.id, user: {role: "user"}), method: :put, class: "btn btn-default" %>
+                        <% elsif  user.role == "admin" %>
+                          <%= button_to "مدخل بيانات", user_path(user.id, user: {role: "data_entry"}), method: :put, class: "btn btn-info" %><hr>
+                          <%= button_to "مستخدم مفعل", user_path(user.id, user: {role: "authorized_user"}), method: :put, class: "btn btn-warning" %><hr>
+                          <%= button_to "الغاء تفعيل المستخدم", user_path(user.id, user: {role: "user"}), method: :put, class: "btn btn-default" %>
+                        <% end %>
+                      </td>
+                      <td>
+                        <span class="text-center" dir="rtl">
+                          <%= link_to 'عرض', user, :class => "btn btn-info btn-link btn-lg-custom" %>
+                          <%= link_to 'تعديل', edit_user_registration_path(user), :class => "btn btn-warning btn-link btn-lg-custom" %>
+                          <%= link_to 'حذف', user, method: :delete, data: { confirm: 'هل انت متأكد؟' }, :class => "btn btn-danger btn-link btn-lg-custom" %>
+                        </span>
+                      </td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
 
-<table>
-  <thead>
-    <tr>
-      <th>Username</th>
-      <th>Role</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+            </div>
 
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.username %></td>
-        <td><%= user.role %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+          </div>
 
-<br>
+          <div class="pagination justify-content-center">
+            <%= will_paginate @users , renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+          </div>
 
-<%= link_to 'New User', new_user_path %>
+        </div>
