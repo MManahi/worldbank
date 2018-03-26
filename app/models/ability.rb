@@ -14,7 +14,6 @@ class Ability
         can :authorized_user_states_allowed_actions, State
       elsif user.role == 'data_entry'
         can :data_entry_states_allowed_actions, State
-        can :other_users_allowed_actions, User
       end
     end
   end

@@ -78,7 +78,7 @@ class StatesController < ApplicationController
   def destroy
     @state.destroy
     respond_to do |format|
-      format.html { redirect_to states_url, notice: 'State was successfully destroyed.' }
+      format.html { redirect_to states_url, notice: 'تم حذف الدولة بنجاح.' }
       format.json { head :no_content }
     end
   end
