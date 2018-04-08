@@ -92,6 +92,6 @@ class StatesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def state_params
-    params.require(:state).permit(:state_name, :state_official_name, :state_name_en, :state_official_name_en, :state_continent, :state_size, :state_population, :state_major_cities, :state_official_lang, :state_currency, :state_religion, :state_neighbors, :state_nature, :state_provinces, :state_flag, :state_map, :state_origin, :state_political_background, :state_regime_type, :state_goverment, :state_constitution, :state_foreign_affairs, :state_current_issues, :state_political_parties, :state_regime_members, :state_international_representation, :state_relations_with_palestine)
+    params.require(:state).permit(:state_name, :state_official_name, :state_name_en, :state_official_name_en, :national_days, :state_continent, :state_size, :state_population, :state_major_cities, :state_official_lang, :state_currency, :state_religion, :state_neighbors, :state_nature, :state_provinces, :state_flag, :state_map, :state_origin, :state_political_background, :state_regime_type, :state_goverment, :state_constitution, :state_foreign_affairs, :state_current_issues, :state_political_parties, :state_regime_members, :state_international_representation, :state_relations_with_palestine)
   end
 end

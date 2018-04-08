@@ -73,6 +73,10 @@
           <%= @state.state_population.blank? ? no_data : @state.state_population %>
         </p>
         <hr class="hr-light">
+        <p class="subtitel" style="text-align:right;">المناسبات و الاعياد الوطنية :
+          <%= @state.national_days.blank? ? no_data : @state.national_days %>
+        </p>
+        <hr class="hr-light">
         <p class="subtitel" style="text-align:right;">اهم المدن وتعدادها السكاني:
           <%= @state.state_major_cities.blank? ? no_data : raw(@state.state_major_cities) %></p>
         <hr class="hr-light">

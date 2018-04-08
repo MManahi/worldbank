@@ -3,7 +3,7 @@
     <div class="product-container">
       <% unless request.format.to_sym == :pdf %>
         <% if Rails.application.assets.find_asset(@state.state_map) %>
-          <%= image_tag(@state.state_map, class: "page-header-sm img-fluid product-image img-map") %>
+          <%= image_tag(@state.state_map, class: "map-background page-header-sm img-fluid product-image img-map") %>
         <% end %>
       <% end %>
     </div>
@@ -12,7 +12,7 @@
     <div class="container">
       <div class="owner">
         <div class="name">
-          <h1 class="title"><%= @state.state_name %><br/></h1>
+          <h1><%= @state.state_name %></h1>
           <% unless request.format.to_sym == :pdf %>
             <% if Rails.application.assets.find_asset(@state.state_flag) %>
               <%= image_tag(@state.state_flag, class: "img-fluid img-flag") %>
@@ -27,9 +27,7 @@
       </div>
     </div>
   </div>
-
 </div>
-
 <%= render 'layouts/messages' %>
 <div class="nav-tabs-navigation" dir="rtl">
   <div class="nav-tabs-wrapper">
@@ -69,7 +67,7 @@
       <br>
       <div class="col-md-6 text-center  d-block mx-auto" dir="rtl">
         <div class="field">
-          <h5>اسم الدولة الرسمي باللغة العربية</h5>
+          <h5 class="style1">اسم الدولة الرسمي باللغة العربية</h5>
           <br>
           <h6><%= @state.state_official_name.blank? ? no_data : @state.state_official_name %></h6>
         </div>
@@ -79,7 +77,7 @@
       <br>
       <div class="col-md-6 text-center  d-block mx-auto" dir="rtl">
         <div class="field">
-          <h5>
+          <h5 class="style2">
             اسم الدولة باللغة الانجليزية
           </h5>
           <br>
@@ -91,7 +89,7 @@
       <br>
       <div class="col-md-6 text-center  d-block mx-auto" dir="rtl">
         <div class="field">
-          <h5>اسم الدولة الرسمي باللغة الانجليزية
+          <h5 class="style3">اسم الدولة الرسمي باللغة الانجليزية
           </h5>
           <br>
           <h6><%= @state.state_official_name_en.blank? ? no_data : @state.state_official_name_en %></h6>
@@ -102,7 +100,7 @@
       <br>
       <div class="col-md-6 text-center  d-block mx-auto" dir="rtl">
         <div class="field">
-          <h5>القارة التي تقع فيها الدولة</h5>
+          <h5 class="style4">القارة التي تقع فيها الدولة</h5>
           <br>
           <h6><%= @state.state_continent %></h6>
         </div>
@@ -112,7 +110,7 @@
       <br>
       <div class="col-md-6 text-center  d-block mx-auto" dir="rtl">
         <div class="field">
-          <h5>مساحة الدولة
+          <h5 class="style5">مساحة الدولة
             <small>(كيلومتر مربع)</small>
           </h5>
           <br>
@@ -125,7 +123,7 @@
       <br>
       <div class="col-md-6 text-center  d-block mx-auto" dir="rtl">
         <div class="field">
-          <h5>التعداد السكاني
+          <h5 class="style6">التعداد السكاني
             <small>(نسمة)</small>
           </h5>
           <br>
@@ -135,11 +133,25 @@
         </div>
       </div>
       <br>
+      <br>
+      <div class="separator-line"></div>
+      <br>
+      <div class="col-md-6 text-center  d-block mx-auto" dir="rtl">
+        <div class="field">
+          <h5 class="style7">المناسبات و الاعياد الوطنية
+          </h5>
+          <br>
+          <h5><%= @state.national_days.blank? ? no_data : @state.national_days %>
+
+          </h5>
+        </div>
+      </div>
+      <br>
       <div class="separator-line"></div>
       <br>
       <div class="col-md-10 text-center  d-block mx-auto" dir="rtl">
         <div class="field">
-          <h5>اهم المدن وتعدادها السكاني
+          <h5 class="style8">اهم المدن وتعدادها السكاني
           </h5>
           <br>
           <h6><%= @state.state_major_cities.blank? ? no_data : raw(@state.state_major_cities) %></h6>
@@ -150,7 +162,7 @@
       <br>
       <div class="col-md-6 text-center  d-block mx-auto" dir="rtl">
         <div class="field">
-          <h5>لغة الدولة الرسمية</h5>
+          <h5 class="style9">لغة الدولة الرسمية</h5>
           <br>
           <h6><%= @state.state_official_lang %></h6>
         </div>
@@ -160,7 +172,7 @@
       <br>
       <div class="col-md-6 text-center  d-block mx-auto" dir="rtl">
         <div class="field">
-          <h5>العملة الرسمية المتداولة</h5>
+          <h5 class="style10">العملة الرسمية المتداولة</h5>
           <br>
           <h6><%= @state.state_currency %></h6>
         </div>
@@ -170,7 +182,7 @@
       <br>
       <div class="col-md-6 text-center  d-block mx-auto" dir="rtl">
         <div class="field">
-          <h5>الديانة الرسمية</h5>
+          <h5 class="style1">الديانة الرسمية</h5>
           <br>
           <h6><%= @state.state_religion.blank? ? no_data : @state.state_religion %></h6>
         </div>
@@ -180,7 +192,7 @@
       <br>
       <div class="col-md-10 text-center  d-block mx-auto" dir="rtl">
         <div class="field">
-          <h5>الدول المجاورة للدولة
+          <h5 class="style2">الدول المجاورة للدولة
           </h5>
           <br>
           <h6><%= raw(@state.state_neighbors) %></h6>
@@ -191,7 +203,7 @@
       <br>
       <div class="col-md-10 text-center  d-block mx-auto" dir="rtl">
         <div class="field">
-          <h5>طبيعة الدولة
+          <h5 class="style3">طبيعة الدولة
           </h5>
           <br>
           <h6><%= @state.state_nature.blank? ? no_data : raw(@state.state_nature) %></h6>
@@ -202,7 +214,7 @@
       <br>
       <div class="col-md-10 text-center  d-block mx-auto" dir="rtl">
         <div class="field">
-          <h5>اهم المناطق والمحافظات
+          <h5 class="style4">اهم المناطق والمحافظات
           </h5>
           <br>
           <h6><%= @state.state_provinces.blank? ? no_data : raw(@state.state_provinces) %></h6>
@@ -213,7 +225,7 @@
       <br>
       <div class="col-md-10 text-center  d-block mx-auto" dir="rtl">
         <div class="field">
-          <h5>نشأة الدولة
+          <h5 class="style1">نشأة الدولة
           </h5>
           <br>
           <h6><%= @state.state_origin.blank? ? no_data : raw(@state.state_origin) %></h6>
@@ -224,7 +236,7 @@
       <br>
       <div class="col-md-10 text-center  d-block mx-auto" dir="rtl">
         <div class="field">
-          <h5>الخلفية السياسية للدولة
+          <h5 class="style2">الخلفية السياسية للدولة
           </h5>
           <br>
           <h6><%= @state.state_political_background.blank? ? no_data : raw(@state.state_political_background) %></h6>
@@ -235,7 +247,7 @@
       <br>
       <div class="col-md-10 text-center  d-block mx-auto" dir="rtl">
         <div class="field">
-          <h5>نظام الحكم في الدولة
+          <h5 class="style3">نظام الحكم في الدولة
           </h5>
           <br>
           <h6><%= @state.state_regime_type.blank? ? no_data : raw(@state.state_regime_type) %></h6>
@@ -246,7 +258,7 @@
       <br>
       <div class="col-md-10 text-center  d-block mx-auto" dir="rtl">
         <div class="field">
-          <h5>النظام الحكومي والبرلمان
+          <h5 class="style4">النظام الحكومي والبرلمان
           </h5>
           <br>
           <h6><%= @state.state_goverment.blank? ? no_data : raw(@state.state_goverment) %></h6>
@@ -257,7 +269,7 @@
       <br>
       <div class="col-md-10 text-center  d-block mx-auto" dir="rtl">
         <div class="field">
-          <h5>دستور الدولة
+          <h5 class="style5">دستور الدولة
           </h5>
           <br>
           <h6><%= @state.state_constitution.blank? ? no_data : raw(@state.state_constitution) %></h6>
@@ -271,7 +283,7 @@
       <br>
       <div class="col-md-10 text-center  d-block mx-auto" dir="rtl">
         <div class="field">
-          <h5>العلاقات الخارجية
+          <h5 class="style1">العلاقات الخارجية
           </h5>
           <br>
           <h6><%= @state.state_foreign_affairs.blank? ? no_data : raw(@state.state_foreign_affairs) %></h6>
@@ -285,7 +297,7 @@
       <br>
       <div class="col-md-10 text-center  d-block mx-auto" dir="rtl">
         <div class="field">
-          <h5>
+          <h5 class="style1">
             القضايا الراهنة
           </h5>
           <br>
@@ -300,7 +312,7 @@
       <br>
       <div class="col-md-10 text-center  d-block mx-auto" dir="rtl">
         <div class="field">
-          <h5>
+          <h5 class="style1">
             الاحزاب و الجماعات السياسية
           </h5>
           <br>
@@ -315,7 +327,7 @@
       <br>
       <div class="col-md-10 text-center  d-block mx-auto" dir="rtl">
         <div class="field">
-          <h5>
+          <h5 class="style1">
             التشكيل الرئاسي والحكومي
           </h5>
           <br>
@@ -330,7 +342,7 @@
       <br>
       <div class="col-md-10 text-center  d-block mx-auto" dir="rtl">
         <div class="field">
-          <h5>
+          <h5 class="style1">
             التمثيل الدولي والسفراء
           </h5>
           <br>
@@ -346,7 +358,7 @@
       <br>
       <div class="col-md-10 text-center  d-block mx-auto" dir="rtl">
         <div class="field">
-          <h5>
+          <h5 class="style1">
             علاقة الدولة بالقضية الفلسطينية
           </h5>
           <br>

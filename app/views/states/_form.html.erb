@@ -21,14 +21,14 @@
       <% end %>
     </div>
   <% end %>
-  <h3>
+  <h3  class="form-title">
     أولا: المعلومات العامة عن الدولة</h3>
   <br>
   <div class="separator-line"></div>
   <br>
   <div class="col-md-4 text-center  d-block mx-auto" dir="rtl">
     <div class="field">
-      <%= form.label "اسم الدولة باللغة العربية", :class => "register-form" %>
+      <%= form.label " اسم الدولة باللغة العربية *", :class => "register-form" %>
       <br>
       <%= form.text_field :state_name, id: :state_state_name, :class => "form-control " %>
     </div>
@@ -44,7 +44,7 @@
   <br>
   <div class="col-md-4 text-center  d-block mx-auto" dir="ltr">
     <div class="field">
-      <%= form.label "اسم الدولة باللغة الانجليزية", :class => "register-form" %>
+      <%= form.label " * اسم الدولة باللغة الانجليزية", :class => "register-form" %>
       <br>
       <%= form.text_field :state_name_en, id: :state_state_name_en, :class => "form-control " %>
     </div>
@@ -60,7 +60,7 @@
   <br>
   <div class="col-md-4 text-center  d-block mx-auto">
     <div class="field">
-      <%= form.label "القارة التي تقع فيها الدولة", :class => "register-form" %>
+      <%= form.label "القارة التي تقع فيها الدولة *", :class => "register-form" %>
       <br>
       <%= form.text_field :state_continent, id: :state_state_continent, :class => "form-control " %>
     </div>
@@ -82,25 +82,10 @@
     </div>
   </div>
   <br>
-  <div class="col-md-10 text-center  d-block mx-auto" dir="ltr">
-    <div class="field">
-      <%= form.label "اهم المدن وتعدادها السكاني", :class => "register-form" %>
-      <br>
-      <%= form.text_area :state_major_cities, :class => "form-control edit", id: :state_major_cities %>
-    </div>
-  </div>
-  <br>
+
   <div class="col-md-4 text-center  d-block mx-auto">
     <div class="field">
-      <%= form.label "لغة الدولة الرسمية", :class => "register-form" %>
-      <br>
-      <%= form.text_field :state_official_lang, id: :state_state_official_lang, :class => "form-control " %>
-    </div>
-  </div>
-  <br>
-  <div class="col-md-4 text-center  d-block mx-auto">
-    <div class="field">
-      <%= form.label "العملة الرسمية المتداولة", :class => "register-form" %>
+      <%= form.label "العملة الرسمية المتداولة * ", :class => "register-form" %>
       <br>
       <%= form.text_field :state_currency, id: :state_state_currency, :class => "form-control " %>
     </div>
@@ -108,11 +93,53 @@
   <br>
   <div class="col-md-4 text-center  d-block mx-auto">
     <div class="field">
-      <%= form.label "الديانة الرسمية", :class => "register-form" %>
+      <%= form.label "الديانة الرسمية *", :class => "register-form" %>
       <br>
-      <%= form.text_field :state_religion, id: :state_state_religion, :class => "form-control " %>
+      <%= form.text_field :state_religion, id: :state_state_religion, :class => "form-control ", focus: true %>
     </div>
   </div>
+  <br>
+  <div class="col-md-4 text-center  d-block mx-auto">
+    <div class="field">
+      <%= form.label "لغة الدولة الرسمية *", :class => "register-form" %>
+      <br>
+      <%= form.text_field :state_official_lang, id: :state_state_official_lang, :class => "form-control " %>
+    </div>
+  </div>
+  <br>
+  <div class="col-md-4 text-center  d-block mx-auto" dir="ltr">
+    <div class="field">
+      <%= form.label " * علم الدولة", :class => "register-form" %>
+      <br>
+      <%= form.text_field :state_flag, id: :state_state_flag, :class => "form-control " %>
+    </div>
+  </div>
+  <br>
+  <div class="col-md-4 text-center  d-block mx-auto" dir="ltr">
+    <div class="field">
+      <%= form.label "* خريطة الدولة", :class => "register-form" %>
+      <br>
+      <%= form.text_field :state_map, id: :state_state_map, :class => "form-control " %>
+    </div>
+  </div>
+  <br>
+  <br>
+  <div class="col-md-4 text-center  d-block mx-auto" dir="ltr">
+    <div class="field">
+      <%= form.label "المناسبات و الاعياد الوطنية", :class => "register-form" %>
+      <br>
+      <%= form.text_field :national_days, id: :national_days, :class => "form-control " %>
+    </div>
+  </div>
+  <br>
+  <div class="col-md-10 text-center  d-block mx-auto" dir="ltr">
+    <div class="field">
+      <%= form.label "اهم المدن وتعدادها السكاني", :class => "register-form" %>
+      <br>
+      <%= form.text_area :state_major_cities, :class => "form-control edit", id: :state_major_cities %>
+    </div>
+  </div>
+
   <br>
   <div class="col-md-10 text-center  d-block mx-auto" dir="ltr">
     <div class="field">
@@ -138,23 +165,7 @@
     </div>
   </div>
   <br>
-  <div class="col-md-4 text-center  d-block mx-auto" dir="ltr">
-    <div class="field">
-      <%= form.label "علم الدولة", :class => "register-form" %>
-      <br>
-      <%= form.text_field :state_flag, id: :state_state_flag, :class => "form-control " %>
-    </div>
-  </div>
-  <br>
-  <div class="col-md-4 text-center  d-block mx-auto" dir="ltr">
-    <div class="field">
-      <%= form.label "خريطة الدولة", :class => "register-form" %>
-      <br>
-      <%= form.text_field :state_map, id: :state_state_map, :class => "form-control " %>
-    </div>
-  </div>
-  <br>
-  <h3>
+  <h3 class="form-title">
     ثانيا: الوضع السياسي للدولة</h3>
   <br>
   <div class="separator-line"></div>
@@ -199,7 +210,7 @@
     </div>
   </div>
   <br>
-  <h3>
+  <h3  class="form-title">
     ثالثا: العلاقات الخارجية</h3>
   <br>
   <div class="separator-line"></div>
@@ -212,7 +223,7 @@
     </div>
   </div>
   <br>
-  <h3>
+  <h3  class="form-title">
     رابعا: القضايا الراهنة</h3>
   <br>
   <div class="separator-line"></div>
@@ -225,7 +236,7 @@
     </div>
   </div>
   <br>
-  <h3>
+  <h3  class="form-title">
     خامسا: المشاركة السياسية</h3>
   <br>
   <div class="separator-line"></div>
@@ -238,7 +249,7 @@
     </div>
   </div>
   <br>
-  <h3>سادسا: مؤسسة الرئاسة والحكومة</h3>
+  <h3  class="form-title">سادسا: مؤسسة الرئاسة والحكومة</h3>
   <br>
   <div class="separator-line"></div>
   <br>
@@ -250,8 +261,8 @@
     </div>
   </div>
   <br>
-  <h3>
- سابعا: التمثيل الدولي</h3>
+  <h3  class="form-title">
+    سابعا: التمثيل الدولي</h3>
   <br>
   <div class="separator-line"></div>
   <br>
@@ -263,8 +274,8 @@
     </div>
   </div>
   <br>
-  <h3>
- ثامنا: العلاقة مع فلسطين</h3>
+  <h3  class="form-title">
+    ثامنا: العلاقة مع فلسطين</h3>
   <br>
   <div class="col-md-10 text-center  d-block mx-auto" dir="ltr">
     <div class="field">

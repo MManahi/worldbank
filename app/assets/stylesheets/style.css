@@ -1365,6 +1365,59 @@ pre.prettyprint {
    text-align: center!important;
 }
 
-.title{
-  margin-top: 200px;
+
+.form-title{
+  color: #616f8c
+}
+
+.style1{
+  color:#c18080
+}
+
+.style2{
+  color: #438496
+}
+
+.style3{
+  color: #cd5360
+}
+
+.style4{
+  color: 	#f9ae58
+}
+
+.style5{
+  color: #9c6a84
+}
+
+.style6{
+  color:  #286da8
+}
+
+.style7{
+  color: #b76e79
+}
+
+.style8{
+  color: #6eb7ac
+}
+
+.style9{
+  color: #c11072
+}
+
+.style10{
+  color: #6eb7ac
+}
+
+.field_with_errors input{
+  border: 1px solid red !important;
+}
+
+.map-background{
+
+}
+
+.page-header {
+  background-image: url('banner.jpg')!important;
 }
